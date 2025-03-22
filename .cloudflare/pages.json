@@ -1,0 +1,82 @@
+{
+  "name": "website",
+  "build": {
+    "command": "npm run pages:build",
+    "output_directory": "out",
+    "root_dir": "./",
+    "environment_variables": {
+      "NODE_VERSION": "20",
+      "NODE_ENV": "production",
+      "ESLINT_NO_DEV_ERRORS": "true"
+    }
+  },
+  "compatibility_flags": [
+    "nodejs_compat_v2"
+  ],
+  "deployment": {
+    "production_branch": "main",
+    "preview_branch_includes": [
+      "dev",
+      "staging"
+    ],
+    "production_environment": {
+      "USER_DATA": "",
+      "NEXT_PUBLIC_APP_URL": "",
+      "REVIEW_CHANNEL": ""
+    }
+  },
+  "functions": {
+    "functions/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "pattern": "/_next/static/*",
+      "cache": {
+        "edge": {
+          "maxAge": 31536000
+        }
+      }
+    },
+    {
+      "pattern": "/images/*",
+      "cache": {
+        "edge": {
+          "maxAge": 31536000
+        }
+      }
+    },
+    {
+      "pattern": "/.*\\.(ico|png|jpg|jpeg|svg|webp)$",
+      "cache": {
+        "edge": {
+          "maxAge": 31536000
+        }
+      }
+    },
+    {
+      "pattern": "/manifest.json",
+      "cache": {
+        "edge": {
+          "maxAge": 86400
+        }
+      }
+    },
+    {
+      "pattern": "/api/*",
+      "cache": {
+        "bypass": true
+      }
+    },
+    {
+      "pattern": "/*",
+      "serve": "/index.html",
+      "cache": {
+        "edge": {
+          "maxAge": 60
+        }
+      }
+    }
+  ]
+}

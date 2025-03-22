@@ -1,0 +1,3 @@
+# Run the pages build
+echo "🏗 Building project for Cloudflare Pages..."
+npm run build || exit 1

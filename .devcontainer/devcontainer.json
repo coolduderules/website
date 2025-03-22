@@ -1,0 +1,35 @@
+{
+  "name": "Website Development",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "dockerFile": "Dockerfile",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "npm install && npm run build",
+  "postCreateCommand": "npm install",
+  "postAttachCommand": {
+    "server": ""
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        ""
+      ]
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached"
+  ]
+}

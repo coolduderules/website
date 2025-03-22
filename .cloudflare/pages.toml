@@ -1,0 +1,24 @@
+# Configuration for Cloudflare Pages
+# This file defines which environment variables are available at build time and runtime
+
+# Define routes to ensure all requests go to the Next.js application
+[[routes]]
+  pattern = "/*"
+  script = ""
+  
+# Build configuration
+[build]
+  command = "npm run build"
+  output_directory = "out"
+  
+[build.environment]
+  NODE_VERSION = "20"
+
+# Runtime variables that will be available to your application (safe to expose)
+[env.production]
+  NODE_ENV = "production"
+  NEXT_PUBLIC_APP_URL = ""     # Will be populated from GitHub vars
+  NEXT_PUBLIC_TELEGRAM_BOT_ID = ""  # Will be populated from GitHub vars
+
+# For sensitive variables, define them in the Cloudflare dashboard
+# and reference them in the GitHub Actions workflow

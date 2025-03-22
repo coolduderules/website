@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 98%;
+    --foreground: 214 60% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 214 60% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 60% 15%;
+    --primary: 208 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 214 60% 15%;
+    --accent: 210 100% 55%;
+    --accent-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 208 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 214 60% 4%;
+      --foreground: 210 40% 98%;
+      --card: 214 60% 8%;
+      --card-foreground: 210 40% 98%;
+      --popover: 214 60% 8%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 208 100% 50%;
+      --primary-foreground: 210 40% 98%;
+      --secondary: 214 60% 12%;
+      --secondary-foreground: 210 40% 98%;
+      --accent: 210 100% 55%;
+      --accent-foreground: 210 40% 98%;
+      --muted: 214 60% 12%;
+      --muted-foreground: 217.9 10.6% 64.9%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 214.3 31.8% 20%;
+      --input: 214.3 31.8% 20%;
+      --ring: 208 100% 50%;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply h-full scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased min-h-full flex flex-col;
+  }
+
+  /* Enhanced form controls */
+  input, textarea, select {
+    @apply px-4 py-2 rounded-lg border-input bg-background shadow-sm
+    focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500
+    disabled:opacity-50 disabled:pointer-events-none
+    placeholder:text-gray-400
+    transition duration-200;
+  }
+
+  button {
+    @apply rounded-lg font-medium shadow-sm
+    focus:outline-none focus:ring-2 focus:ring-primary-500/20
+    disabled:opacity-50 disabled:pointer-events-none
+    transition duration-200;
+  }
+
+  /* Improved scrollbars */
+  .custom-scrollbar, body {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.primary.200') transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar, body::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    @apply bg-primary-200 rounded-full hover:bg-primary-300 transition-colors;
+  }
+
+  /* Mobile tap highlight */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Enhanced focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Text balance for better typography */
+  h1, h2, h3, h4, h5, h6, p {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-sm dark:bg-gray-900/80;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-accent-500;
+  }
+}

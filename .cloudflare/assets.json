@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules/**",
+    ".git/**",
+    ".next/**",
+    "functions/**"
+  ],
+  "rules": [
+    {
+      "type": "redirect",
+      "globs": [
+        "!/_next/*",
+        "!/*.{ico,png,jpg,jpeg,svg,webp}",
+        "!/manifest.json",
+        "!/api/*"
+      ],
+      "fallthrough": true,
+      "code": 302
+    },
+    {
+      "type": "static",
+      "globs": [
+        "/_next/static/*",
+        "/static/*",
+        "/*.{ico,png,jpg,jpeg,svg,webp}",
+        "/manifest.json"
+      ],
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    }
+  ]
+}
