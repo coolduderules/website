@@ -1,0 +1,47 @@
+# Wrangler configuration for Cloudflare Pages
+name = "website"
+# Building with Next.js app directory output
+pages_build_output_dir = ".next"
+compatibility_date = "2025-03-02"
+
+# Production environment configuration
+[env.production]
+compatibility_date = "2025-02-26"
+compatibility_flags = [
+  "nodejs_compat_v2",
+]
+
+# Production environment variables
+# These should be set via Cloudflare Dashboard or GitHub Secrets
+# and referenced through the centralized env.ts utility
+[env.production.vars]
+# Public environment variables (non-sensitive)
+NEXT_PUBLIC_APP_URL = ""  # Set via dashboard/CI
+NEXT_PUBLIC_TELEGRAM_BOT_ID = ""  # Set via dashboard/CI
+
+# Bindings for Cloudflare services
+# KV namespace for site assets
+[[env.production.kv_namespaces]]
+id = "5f68411165ef49e8bd675ae3a651bc44"
+binding = "SITE_ASSETS"
+
+# KV namespace for user data
+[[env.production.kv_namespaces]]
+id = "c9fcebde22884671bcb9f637cb91f5d2"
+binding = "USER_DATA"
+
+# D1 database for persistent storage
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "stiflingchip"
+
+# Development environment configuration
+[env.development]
+# Add development configuration here when needed
+[env.development.vars]
+# Use environment variables instead of hardcoded values
+NEXT_PUBLIC_APP_URL = ""
+NEXT_PUBLIC_TELEGRAM_BOT_ID = ""
+REVIEW_CHANNEL = ""
+TELEGRAM_BOT_ID = ""
+TELEGRAM_BOT_NAME = ""

@@ -1,0 +1,16 @@
+{
+  "name": "Stifling Chip's Crypto Corner",
+  "short_name": "Stifling Chip",
+  "description": "Expert crypto trading insights, market analysis, and trading signals",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0095ff",
+  "icons": [
+    {
+      "src": "/Logo.svg",
+      "sizes": "1024x1024",
+      "type": "image/svg"
+    }
+  ]
+}

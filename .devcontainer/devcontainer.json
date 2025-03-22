@@ -1,0 +1,33 @@
+{
+  "name": "Website Development",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "npm install && npm run build",
+  "postCreateCommand": "npm install",
+  "postAttachCommand": {
+    "server": ""
+  },
+  "features": {
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-node:latest": {
+      "version": "20",
+      "installNpm": true
+    }
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        ""
+      ]
+    }
+  },
+  "remoteUser": "root",
+  "remoteEnv": {
+    "NODE_ENV": "development"
+  }
+}
