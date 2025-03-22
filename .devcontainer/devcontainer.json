@@ -5,10 +5,10 @@
     "cpus": 2
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install && npm run build",
+  "updateContentCommand": "npx --yes npm-check-updates -u",
   "postCreateCommand": "npm install",
   "postAttachCommand": {
-    "server": "npm start"
+    "server": "npm run lint || :"
   },
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
