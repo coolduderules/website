@@ -1,4 +1,4 @@
-4WE2 2W`SX. 34# StiflingChip
+# StiflingChip
 
 A Cloudflare Pages application using React, TypeScript, and D1 database, with Telegram authentication.
 
