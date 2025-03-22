@@ -11,9 +11,7 @@
     "server": "npm start"
   },
   "features": {
-    "ghcr.io/cirolosapio/devcontainers-features/alpine-node:latest": {
-      "version": "20",
-      "installNpm": true
+    "ghcr.io/devcontainers/features/node:1": {
     }
   },
   "forwardPorts": [
