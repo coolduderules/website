@@ -5,5 +5,6 @@
     "cpus": 2
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npx --yes npm-check-updates -u"
+  "updateContentCommand": "npx --yes npm-check-updates -u",
+  "volumes": "../..:/workspaces:cached"
 }
