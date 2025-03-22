@@ -8,7 +8,7 @@
   "updateContentCommand": "npm install && npm run build",
   "postCreateCommand": "npm install",
   "postAttachCommand": {
-    "server": ""
+    "server": "npm start"
   },
   "features": {
     "ghcr.io/cirolosapio/devcontainers-features/alpine-node:latest": {
@@ -22,7 +22,7 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        ""
+        "src/index.ts"
       ]
     }
   },
