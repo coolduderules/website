@@ -1,6 +1,6 @@
 {
   "name": "Website Development",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "node:current-alpine3.21",
   "hostRequirements": {
     "cpus": 2
   },
@@ -9,10 +9,6 @@
   "postCreateCommand": "npm install",
   "postAttachCommand": {
     "server": "npm run lint || :"
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-    }
   },
   "forwardPorts": [
     3000
@@ -24,7 +20,7 @@
       ]
     }
   },
-  "remoteUser": "root",
+  "remoteUser": "node",
   "remoteEnv": {
     "NODE_ENV": "development"
   }
