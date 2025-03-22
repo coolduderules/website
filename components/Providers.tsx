@@ -17,8 +17,6 @@ import { useMediaQuery } from 'react-responsive';
 import { errorTracker } from '@/utils/errorTracking';
 import { z } from 'zod';
 import { env } from '@/utils/env';
-import { fetch } from '@cloudflare/workers-types';
-import { get, url } from '@types/react-dom/client';
 
 declare global {
   interface Window {
